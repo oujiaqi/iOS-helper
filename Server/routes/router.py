@@ -7,7 +7,7 @@ import bugs
 
 
 application = tornado.web.Application(
-        handlers=[(r'/bugs/add',bugs.AddBugHandler),],
+        handlers=[(r'/bug/add',bugs.AddBugHandler), (r'/bug/get/one', bugs.GetOneBugHandler), (r'/bug/get/several', bugs.GetBugsHandler)],
         static_path=os.path.join(os.path.dirname(__file__), "../public"),
         debug=True
         )

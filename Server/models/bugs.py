@@ -47,7 +47,7 @@ class Bug(object):
         return self._errorCode
 
     @property
-    def cortectedCode(self):
+    def correctedCode(self):
         return self._correctedCode
 
     @property
@@ -57,6 +57,18 @@ class Bug(object):
     @property
     def createTime(self):
         return self._createTime
+
+    def toJson(self):
+        return {"bid": self.bid,
+            "title":self.title,
+            "description":self.description,
+            "answer":self.answer,
+            "url":self.url,
+            "category":self.category,
+            "errorCode":self.errorCode,
+            "correctedCode":self.correctedCode,
+            "picture":self.picture,
+            "createTime":self.createTime.strftime("%Y-%m-%d %H:%M:%S")}
 
     @staticmethod
     def del_one_bug(bid):
@@ -89,12 +101,16 @@ class Bug(object):
     def get_one_bug(bid=""):
         bid = ObjectId(bid)
         bug = connect().bug.find_one({"_id": bid})
-        return Bug(bug["_id"], bug["title"], bug["description"], bug["answer"], bug["url"], bug["category"], bug["errorCode"], bug["correctedCode"], bug["picture"], bug["createTime"])
+        if bug:
+            return Bug(bug["_id"], bug["title"], bug["description"], bug["answer"], bug["url"], bug["category"], bug["errorCode"], bug["correctedCode"], bug["picture"], bug["createTime"])
+        else:
+            return None
+
 
     @staticmethod
     def get_bugs(start=0, count=20):
         bugs = []
-        for bug in connect().bug.find()[start:count+start]:
+        for bug in connect().bug.find()[int(start):int(count)+int(start)]:
             bugs.append(Bug(bug["_id"], bug["title"], bug["description"], bug["answer"], bug["url"], bug["category"], bug["errorCode"], bug["correctedCode"], bug["picture"], bug["createTime"]))
         return bugs
 
