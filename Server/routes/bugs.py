@@ -13,7 +13,10 @@ class AddBugHandler(tornado.web.RequestHandler):
         # except ValueError:
         #     self.write("非json格式参数，添加失败")
         #     return
+        print "---------请求----------"
         print self.request
+        print "----------------------"
+        print ""
         newBug = {}
         newBug["category"] = self.get_argument("category", "")
         newBug["url"] = self.get_argument("url", "")
@@ -25,6 +28,8 @@ class AddBugHandler(tornado.web.RequestHandler):
         newBug["correctedCode"] = self.get_argument("correctedCode", "")
         bid = Bug.add_one_bug(newBug)
         self.write("添加成功！该不该id序列为"+str(bid))
+        print "返回成功"
+        return
 
 class GetOneBugHandler(tornado.web.RequestHandler):
     def get(self):
