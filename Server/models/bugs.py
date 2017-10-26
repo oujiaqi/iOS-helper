@@ -73,7 +73,8 @@ class Bug(object):
     @staticmethod
     def del_one_bug(bid):
         bid = ObjectId(bid)
-        connect().bug.remove({"_id": bid})
+        return connect().bug.remove({"_id": bid})
+
 
     @staticmethod
     def modify_one_bug(bid, modified_dic):
