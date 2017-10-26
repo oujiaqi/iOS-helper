@@ -27,7 +27,11 @@ class AddBugHandler(tornado.web.RequestHandler):
         newBug["answer"] = self.get_argument("answer", "")
         newBug["correctedCode"] = self.get_argument("correctedCode", "")
         bid = Bug.add_one_bug(newBug)
-        self.write("添加成功！该不该id序列为"+str(bid))
+        self.set_header("Content-Type", "application/json; charset=utf-8")
+        self.write({
+                "method": "AddBug",
+                "status": "successed"
+                })
         print "返回成功"
         return
 
@@ -40,9 +44,12 @@ class GetOneBugHandler(tornado.web.RequestHandler):
             self.write(json.dumps(bug.toJson()))
             return
         else:
-            self.write("获取失败")
+            self.set_header("Content-Type", "application/json; charset=utf-8")
+            self.write({
+                "method": "GetBug",
+                "status": "failed"
+                })
             return
-
 class GetBugsHandler(tornado.web.RequestHandler):
     def get(self):
         start = self.get_argument("start", 0)
@@ -56,7 +63,11 @@ class GetBugsHandler(tornado.web.RequestHandler):
             self.write(json.dumps(bugsJson))
             return
         else:
-            self.write("获取失败")
+            self.set_header("Content-Type", "application/json; charset=utf-8")
+            self.write({
+                "method": "GetBugs",
+                "status": "failed"
+                })
             return
 
 # class UploadBugsPicHandler(tornado.web.RequestHandler):
