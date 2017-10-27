@@ -7,9 +7,22 @@ from models.bugs import Bug
 import json
 import os
 
+def answerReq(response, message, action, successedFlag, infoDict={}):
+    infoDict["method"] = action
+    infoDict["message"] = message
+    infoDict["status"] = "failed"
+    if successedFlag:
+        infoDict["status"] = "successed"
+    response.set_header("Content-Type", "application/json; charset=utf-8")
+    response.write(infoDict)
+    print infoDict
+
 
 class AddBugHandler(tornado.web.RequestHandler):
     def post(self):
+        action = "POST AddBug"
+        successedFlag = False
+        message = ""
         # try:
         #     newBug = json.loads(self.request.body)
         # except ValueError:
@@ -35,60 +48,34 @@ class AddBugHandler(tornado.web.RequestHandler):
         try:
             bid = Bug.add_one_bug(newBug)
             message="添加bug成功"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "AddBug",
-                "message": message,
-                "status": "successed"
-                })
-            print message
+            successedFlag = True
+            answerReq(self, message, action, successedFlag, {})
             return
         except Exception, msg:
             message="添加出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "AddBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
 
 class ModifyBugHandler(tornado.web.RequestHandler):
     def post(self):
+        action = "POST ModifyBug"
+        successedFlag = False
+        message = ""
         bid = self.get_argument("bid", None)
         if not bid:
             message="请上传bid"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "ModifyBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             return
         try:
             tempBug = Bug.get_one_bug(bid)
             if not tempBug:
                 message="请传入正确的bid"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "ModifyBug",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
         except Exception, msg:
             message="查询时候出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "ModifyBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
         mBug = {}
@@ -120,70 +107,39 @@ class ModifyBugHandler(tornado.web.RequestHandler):
         try:
             Bug.modify_one_bug(bid, mBug)
             message="修改成功"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "ModifyBug",
-                "message": message,
-                "status": "successed"
-                })
-            print message
+            successedFlag = True
+            answerReq(self, message, action, successedFlag, {})
             return
         except Exception, msg:
             message="修改时候出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "ModifyBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
 
 class DelOneBugHandler(tornado.web.RequestHandler):
     def get(self):
+        action = "GET DelOneBug"
+        successedFlag = False
+        message = ""
         bid = self.get_argument("bid", None)
         if not bid:
             message="请传入bid"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "DelOneBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             return
         try:
             result = Bug.del_one_bug(bid)
             if result['n'] > 0:
                 message="删除成功"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "DelOneBug",
-                    "message": message,
-                    "status": "successed"
-                    })
-                print message
+                successedFlag = True
+                answerReq(self, message, action, successedFlag, {})
                 return
             else:
                 message="删除失败，请检查时候存在该bid"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "DelOneBug",
-                    "message": message,
-                    "status": "successed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
         except Exception, msg:
             message="删除出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "DelOneBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
 
@@ -192,6 +148,9 @@ class DelOneBugHandler(tornado.web.RequestHandler):
 
 class GetOneBugHandler(tornado.web.RequestHandler):
     def get(self):
+        action = "GET GetOneBug"
+        successedFlag = False
+        message = ""
         bid = self.get_argument("bid", None)
         try:
             bug = Bug.get_one_bug(bid)
@@ -201,29 +160,20 @@ class GetOneBugHandler(tornado.web.RequestHandler):
                 return
             else:
                 message="获取失败"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "GetOneBug",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
         except Exception, msg:
             message="查询出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "GetOneBug",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
         
 
 class GetBugsHandler(tornado.web.RequestHandler):
     def get(self):
+        action = "GET GetBugs"
+        successedFlag = False
+        message = ""
         start = self.get_argument("start", 0)
         count = self.get_argument("count", 20)
         try:
@@ -237,67 +187,38 @@ class GetBugsHandler(tornado.web.RequestHandler):
                 return
             else:
                 message="获取失败"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "GetBugs",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
         except Exception, msg:
             message="查询出现错误"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "GetBugs",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             print msg
             return
 
 
 class UploadBugPicHandler(tornado.web.RequestHandler):
     def post(self):
+        action = "POST UploadBugPic"
+        successedFlag = True
+        message = ""
         ext_allowed = ['gif', 'jpg', 'jpeg', 'png']
         max_size = 2621440
         bid = self.get_argument("bid", None)
         save_dir = os.path.join(os.path.dirname(__file__), "../public/pics/bugs/")
         if not bid:
             message = "上传失败，未上传bid参数"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "UploadBugPic",
-                "message": message,
-                "status": "failed"
-                })
-            print message
+            answerReq(self, message, action, successedFlag, {})
             return
-        for one in self.request.files:
-            print one
         if 'image' in self.request.files:
             pic = self.request.files['image'][0]
             ext = pic['filename'].split('.').pop()
             if ext not in ext_allowed:
                 message="图片格式不支持"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "UploadBugPic",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
             if len(pic['body'])>max_size:
                 message="图片太大"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "UploadBugPic",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 return
             file_name = bid+"."+ext
             print "开始上传"
@@ -306,26 +227,16 @@ class UploadBugPicHandler(tornado.web.RequestHandler):
             print "上传成功"
             print "修改图片名ing"
             try:
-                Bug.modify_one_bug(bid, {"picture": file_name})
+                Bug.modify_one_bug(bid, {"picture": "/static/pics/bugs/"+file_name})
             except Exception, msg:
                 message="更新名字错误"
-                self.set_header("Content-Type", "application/json; charset=utf-8")
-                self.write({
-                    "method": "UploadBugPic",
-                    "message": message,
-                    "status": "failed"
-                    })
-                print message
+                answerReq(self, message, action, successedFlag, {})
                 print msg
                 return
             message="上传成功"
-            self.set_header("Content-Type", "application/json; charset=utf-8")
-            self.write({
-                "method": "UploadBugPic",
-                "message": message,
-                "status": "successed"
-                })
-            print message
+            successedFlag = True
+            answerReq(self, message, action, successedFlag, {"pic-path": "/static/pics/bugs/"+file_name})
             return
+
 
 
