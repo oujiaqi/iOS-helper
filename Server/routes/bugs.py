@@ -49,7 +49,7 @@ class AddBugHandler(tornado.web.RequestHandler):
             bid = Bug.add_one_bug(newBug)
             message="添加bug成功"
             successedFlag = True
-            answerReq(self, message, action, successedFlag, {})
+            answerReq(self, message, action, successedFlag, {"bid":str(bid)})
             return
         except Exception, msg:
             message="添加出现错误"
