@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title=@"Q&A";
     // Do any additional setup after loading the view.
     self.pageTitles = @[@"OC", @"Swift", @"iOS", @"Other"];
     

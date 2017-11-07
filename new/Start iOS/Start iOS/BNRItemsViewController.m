@@ -43,9 +43,11 @@ extern NSString *SERVER_PORT;
 {
     [super viewDidLoad];
  
-    
-//    ServerInterface* store=[[ServerInterface alloc]init];
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 100;
+    //    ServerInterface* store=[[ServerInterface alloc]init];
 //    [store getBugs];
+    
     
     self.resultArray = [[NSMutableArray alloc]init];
     [self getAllBugsFromServer];
@@ -53,11 +55,63 @@ extern NSString *SERVER_PORT;
     [self.tableView registerClass:[UITableViewCell class]
            forCellReuseIdentifier:@"UITableViewCell"];
     
-    UIView *header = self.headerView;
-    [self.tableView setTableHeaderView:header];
+   
+    
+    UILabel *leftlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 20)];
+    leftlabel.textColor = [UIColor blackColor];
+    leftlabel.userInteractionEnabled  = YES;
+    leftlabel.text =@"Edit";
+    UITapGestureRecognizer *labelTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(edit)];
+    [leftlabel addGestureRecognizer:labelTapGestureRecognizer];
+    
+    
+    UILabel *rightlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 20)];
+    rightlabel.textColor = [UIColor blackColor];
+    rightlabel.userInteractionEnabled  = YES;
+    rightlabel.text =@"Add";
+    UITapGestureRecognizer *labelTapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(add)];
+    [rightlabel addGestureRecognizer:labelTapGestureRecognizer1];
+    
+    
+    
+    
+    UIBarButtonItem *leftItem=[[UIBarButtonItem alloc]initWithCustomView:leftlabel];
+    UIBarButtonItem *rightitem=[[UIBarButtonItem alloc]initWithCustomView:rightlabel];
+    
+    self.navigationItem.rightBarButtonItem=rightitem;
+    self.navigationItem.leftBarButtonItem=leftItem;
+    
+    
+    
+    
+    
+    //    self.navigationItem.rightBarButtonItem = ({
+    //        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemEdit target:self action:@selector(add)];
+    //        item;
+    //    });
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(getData:) name:@"datachanged" object:nil];
+    
+    
+    
+    
+    
+    
+    [self.tableView registerClass:[UITableViewCell class]
+           forCellReuseIdentifier:@"UITableViewCell"];
+    
+    //    UIView *header = self.headerView;
+    //    [self.tableView setTableHeaderView:header];
+}
 
     
-}
+    
+    
+    //UIView *header = self.headerView;
+    //[self.tableView setTableHeaderView:header];
+
+    
+
 
 -(NSArray*)getAllBugsFromLocal{
     BugStore* store=[[BugStore alloc]init];
@@ -105,10 +159,64 @@ extern NSString *SERVER_PORT;
     // will appear in on the tableview
     NSArray *items = [[BNRItemStore sharedStore] allItems];
     BNRItem *item = items[indexPath.row];
-
+    UIFont *font = [UIFont systemFontOfSize:15];
+    CGSize size = [[item description] sizeWithFont:font constrainedToSize:CGSizeMake(320,1000) lineBreakMode:NSLineBreakByWordWrapping];
+    cell.textLabel.frame = CGRectMake(cell.textLabel.frame.origin.x, cell.textLabel.frame.origin.y, 320, size.height);
+    cell.textLabel.lineBreakMode = NSLineBreakByWordWrapping;
+    
+    
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.font = font;
     cell.textLabel.text = [item description];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    
+    
+   
+   
 
     return cell;
+}
+
+- (void)add
+{
+    //    BNRItem *newItem = [[BNRItemStore sharedStore] createItem];
+    //
+    //    // Figure out where that item is in the array
+    //    NSInteger lastRow = [[[BNRItemStore sharedStore] allItems] indexOfObject:newItem];
+    //
+    //    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    //
+    //    // Insert this new row into the table.
+    //    [self.tableView insertRowsAtIndexPaths:@[indexPath]
+    //                          withRowAnimation:UITableViewRowAnimationTop];
+    AddViewController *add=[[AddViewController alloc]init];
+    //    NSArray *items=[[BNRItemStore sharedStore]allItems];
+    //    BNRItem *selectedItem=items[indexPath.row];
+    //    add.item=selectedItem;
+    [self.navigationController pushViewController:add animated:YES];
+}
+
+
+- (void)edit
+{
+    
+    NSLog(@"Method in controller.");
+    NSLog(@"Button clicked.");
+    if (self.isEditing) {
+        // Change text of button to inform user of state
+        //        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        
+        // Turn off editing mode
+        [self setEditing:NO animated:YES];
+    } else {
+        // Change tet of button to inform user of state
+        //        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        
+        // Enter editing mode
+        [self setEditing:YES animated:YES];
+    }
+    
+    
 }
 
 - (void)   tableView:(UITableView *)tableView
@@ -164,7 +272,7 @@ extern NSString *SERVER_PORT;
         [self setEditing:NO animated:YES];
     } else {
         // Change tet of button to inform user of state
-        [sender setTitle:@"Done" forState:UIControlStateNormal];
+       // [sender setTitle:@"Done" forState:UIControlStateNormal];
 
         // Enter editing mode
         [self setEditing:YES animated:YES];

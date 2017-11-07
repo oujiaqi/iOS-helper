@@ -20,11 +20,17 @@ extern NSString *SERVER_PORT;
 
 
 
-@property (weak, nonatomic) IBOutlet UITextField *mTitle;
-@property (weak, nonatomic) IBOutlet UITextField *describe;
-@property (weak, nonatomic) IBOutlet UITextField *solution;
+@property (weak, nonatomic) IBOutlet UITextView *mTitle;
+@property (weak, nonatomic) IBOutlet UITextView *describe;
+@property (weak, nonatomic) IBOutlet UITextView *solution;
+@property (weak, nonatomic) IBOutlet UITextView *url;
+@property (weak, nonatomic) IBOutlet UITextView *category;
 
+@property (weak, nonatomic) IBOutlet UITextView *errorcode;
+@property (weak, nonatomic) IBOutlet UITextView *correctercode;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *UISroll;
+@property (weak, nonatomic) IBOutlet UITextView *picture;
 @end
 
 @implementation AddViewController
@@ -36,15 +42,15 @@ extern NSString *SERVER_PORT;
     [super viewWillDisappear:animated];
     
     // Clear first responder
-    [self.view endEditing:YES];
+    //[self.view endEditing:YES];
     
  
     
 }
-- (IBAction)btnAdd:(UIButton *)sender {
-    // "Save" 
-    [self addBugToServer];
-}
+//- (IBAction)btnAdd:(UIButton *)sender {
+//    // "Save"
+ //   [self addBugToServer];
+//}
 
 - (void)setItem:(BNRItem *)item
 {
@@ -55,6 +61,92 @@ extern NSString *SERVER_PORT;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    UILabel *rightlabel=[[UILabel alloc]initWithFrame:CGRectMake(0, 0, 40, 20)];
+    rightlabel.textColor = [UIColor blackColor];
+    rightlabel.userInteractionEnabled  = YES;
+    rightlabel.text =@"增加";
+    UITapGestureRecognizer *labelTapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(add)];
+    [rightlabel addGestureRecognizer:labelTapGestureRecognizer1];
+    UIBarButtonItem *rightitem=[[UIBarButtonItem alloc]initWithCustomView:rightlabel];
+    
+    self.navigationItem.rightBarButtonItem=rightitem;
+    
+    
+    // _placeholderLabel
+    UILabel *placeHolderLabel = [[UILabel alloc] init];
+    placeHolderLabel.text = @"请输标题入内容";
+    placeHolderLabel.numberOfLines = 0;
+    placeHolderLabel.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel sizeToFit];
+    [self.mTitle addSubview:placeHolderLabel];
+    [self.mTitle setValue:placeHolderLabel forKey:@"_placeholderLabel"];
+    
+    
+    
+    UILabel *placeHolderLabel1 = [[UILabel alloc] init];
+    placeHolderLabel1.numberOfLines = 0;
+    placeHolderLabel1.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel1 sizeToFit];
+    placeHolderLabel1.text = @"请输描述入内容";
+    [self.describe addSubview:placeHolderLabel1];
+    [self.describe setValue:placeHolderLabel1 forKey:@"_placeholderLabel"];
+    
+    
+    UILabel *placeHolderLabel2 = [[UILabel alloc] init];
+    placeHolderLabel2.numberOfLines = 0;
+    placeHolderLabel2.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel2 sizeToFit];
+    placeHolderLabel2.text = @"请输入回复内容";
+    [self.solution addSubview:placeHolderLabel2];
+    [self.solution setValue:placeHolderLabel2 forKey:@"_placeholderLabel"];
+    
+    
+    
+    UILabel *placeHolderLabel3 = [[UILabel alloc] init];
+    placeHolderLabel3.numberOfLines = 0;
+    placeHolderLabel3.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel3 sizeToFit];
+    placeHolderLabel3.text = @"请输入描述内容";
+    [self.category addSubview:placeHolderLabel3];
+    [self.category setValue:placeHolderLabel3 forKey:@"_placeholderLabel"];
+    
+    UILabel *placeHolderLabel4 = [[UILabel alloc] init];
+    placeHolderLabel4.numberOfLines = 0;
+    placeHolderLabel4.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel4 sizeToFit];
+    placeHolderLabel4.text = @"请输链接内容";
+    [self.url addSubview:placeHolderLabel4];
+    [self.url setValue:placeHolderLabel4 forKey:@"_placeholderLabel"];
+    
+   
+    
+    UILabel *placeHolderLabel5 = [[UILabel alloc] init];
+    placeHolderLabel5.numberOfLines = 0;
+    placeHolderLabel5.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel5 sizeToFit];
+    placeHolderLabel5.text = @"请输错误码";
+    [self.errorcode addSubview:placeHolderLabel5];
+    [self.errorcode setValue:placeHolderLabel5 forKey:@"_placeholderLabel"];
+    
+    UILabel *placeHolderLabel6 = [[UILabel alloc] init];
+    placeHolderLabel6.numberOfLines = 0;
+    placeHolderLabel6.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel6 sizeToFit];
+    placeHolderLabel6.text = @"请输正确码";
+    [self.correctercode addSubview:placeHolderLabel6];
+    [self.correctercode setValue:placeHolderLabel6 forKey:@"_placeholderLabel"];
+    
+    UILabel *placeHolderLabel7 = [[UILabel alloc] init];
+    placeHolderLabel7.numberOfLines = 0;
+    placeHolderLabel7.textColor = [UIColor lightGrayColor];
+    [placeHolderLabel7 sizeToFit];
+    placeHolderLabel7.text = @"请输图片入内容";
+    [self.picture addSubview:placeHolderLabel7];
+    [self.picture setValue:placeHolderLabel7 forKey:@"_placeholderLabel"];
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -64,7 +156,14 @@ extern NSString *SERVER_PORT;
 }
 
 
--(void)addBugToServer
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.UISroll.contentSize =CGSizeMake(320,1000);
+}
+
+
+
+-(void)add
 {
 
     NSString* mTitle=self.mTitle.text;

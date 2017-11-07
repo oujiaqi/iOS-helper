@@ -14,17 +14,18 @@
 		0F462DCD1FA47E7100587375 /* ServerInterface.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F462DCC1FA47E7100587375 /* ServerInterface.m */; };
 		0F9EE28C1FA4A07A00467B78 /* Bug.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9EE28B1FA4A07A00467B78 /* Bug.m */; };
 		0F9EE28F1FA4BFE500467B78 /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F9EE28E1FA4BFE500467B78 /* UIView+Toast.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		689993EC1FB177B600C90FB8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 689993EB1FB177B600C90FB8 /* Main.storyboard */; };
+		689993EF1FB178B900C90FB8 /* QADetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 689993EE1FB178B900C90FB8 /* QADetailViewController.m */; };
 		68BCA0861F9A17D100E85F90 /* BNRItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BCA0811F9A17D100E85F90 /* BNRItem.m */; };
 		68BCA0871F9A17D100E85F90 /* BNRItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BCA0831F9A17D100E85F90 /* BNRItemStore.m */; };
 		68BCA0881F9A17D100E85F90 /* BNRItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BCA0851F9A17D100E85F90 /* BNRItemsViewController.m */; };
 		68BCA08A1F9A17DB00E85F90 /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BCA0891F9A17DB00E85F90 /* HeaderView.xib */; };
 		68BCA08E1F9A1A1400E85F90 /* BNRDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BCA08C1F9A1A1400E85F90 /* BNRDetailViewController.m */; };
-		68BCA08F1F9A1A1400E85F90 /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BCA08D1F9A1A1400E85F90 /* BNRDetailViewController.xib */; };
 		68BCA0931F9A1D8C00E85F90 /* AddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 68BCA0911F9A1D8C00E85F90 /* AddViewController.m */; };
-		68BCA0941F9A1D8C00E85F90 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68BCA0921F9A1D8C00E85F90 /* AddViewController.xib */; };
+		68EBBEB11FACBF9600CB8BCE /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EBBEB01FACBF9600CB8BCE /* AddViewController.xib */; };
+		68EBBEB51FACC47D00CB8BCE /* BNRDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 68EBBEB41FACC47D00CB8BCE /* BNRDetailViewController.xib */; };
 		EA79C33B1F6E5CCB0077AED5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EA79C33A1F6E5CCB0077AED5 /* main.m */; };
 		EA79C33E1F6E5CCB0077AED5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EA79C33D1F6E5CCB0077AED5 /* AppDelegate.m */; };
-		EA79C3441F6E5CCB0077AED5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA79C3421F6E5CCB0077AED5 /* Main.storyboard */; };
 		EA79C3461F6E5CCB0077AED5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA79C3451F6E5CCB0077AED5 /* Assets.xcassets */; };
 		EA79C3491F6E5CCB0077AED5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA79C3471F6E5CCB0077AED5 /* LaunchScreen.storyboard */; };
 		EA79C3541F6E5CCB0077AED5 /* Start_iOSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EA79C3531F6E5CCB0077AED5 /* Start_iOSTests.m */; };
@@ -67,6 +68,9 @@
 		0F9EE28D1FA4BFE500467B78 /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		0F9EE28E1FA4BFE500467B78 /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		0F9EE2911FA4C3ED00467B78 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		689993EB1FB177B600C90FB8 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		689993ED1FB178B900C90FB8 /* QADetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QADetailViewController.h; sourceTree = "<group>"; };
+		689993EE1FB178B900C90FB8 /* QADetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QADetailViewController.m; sourceTree = "<group>"; };
 		68BCA0801F9A17D100E85F90 /* BNRItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItem.h; sourceTree = "<group>"; };
 		68BCA0811F9A17D100E85F90 /* BNRItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRItem.m; sourceTree = "<group>"; };
 		68BCA0821F9A17D100E85F90 /* BNRItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRItemStore.h; sourceTree = "<group>"; };
@@ -76,15 +80,14 @@
 		68BCA0891F9A17DB00E85F90 /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		68BCA08B1F9A1A1400E85F90 /* BNRDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BNRDetailViewController.h; sourceTree = "<group>"; };
 		68BCA08C1F9A1A1400E85F90 /* BNRDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BNRDetailViewController.m; sourceTree = "<group>"; };
-		68BCA08D1F9A1A1400E85F90 /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		68BCA0901F9A1D8C00E85F90 /* AddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddViewController.h; sourceTree = "<group>"; };
 		68BCA0911F9A1D8C00E85F90 /* AddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddViewController.m; sourceTree = "<group>"; };
-		68BCA0921F9A1D8C00E85F90 /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		68EBBEB01FACBF9600CB8BCE /* AddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		68EBBEB41FACC47D00CB8BCE /* BNRDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BNRDetailViewController.xib; sourceTree = "<group>"; };
 		EA79C3361F6E5CCB0077AED5 /* Start iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Start iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA79C33A1F6E5CCB0077AED5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		EA79C33C1F6E5CCB0077AED5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EA79C33D1F6E5CCB0077AED5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		EA79C3431F6E5CCB0077AED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EA79C3451F6E5CCB0077AED5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EA79C3481F6E5CCB0077AED5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EA79C34A1F6E5CCB0077AED5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -171,14 +174,15 @@
 		EA79C3381F6E5CCB0077AED5 /* Start iOS */ = {
 			isa = PBXGroup;
 			children = (
+				689993EB1FB177B600C90FB8 /* Main.storyboard */,
 				0F462DCB1FA47E7100587375 /* ServerInterface.h */,
 				0F462DCC1FA47E7100587375 /* ServerInterface.m */,
 				68BCA0901F9A1D8C00E85F90 /* AddViewController.h */,
 				68BCA0911F9A1D8C00E85F90 /* AddViewController.m */,
-				68BCA0921F9A1D8C00E85F90 /* AddViewController.xib */,
+				68EBBEB01FACBF9600CB8BCE /* AddViewController.xib */,
 				68BCA08B1F9A1A1400E85F90 /* BNRDetailViewController.h */,
 				68BCA08C1F9A1A1400E85F90 /* BNRDetailViewController.m */,
-				68BCA08D1F9A1A1400E85F90 /* BNRDetailViewController.xib */,
+				68EBBEB41FACC47D00CB8BCE /* BNRDetailViewController.xib */,
 				68BCA0801F9A17D100E85F90 /* BNRItem.h */,
 				68BCA0811F9A17D100E85F90 /* BNRItem.m */,
 				68BCA0821F9A17D100E85F90 /* BNRItemStore.h */,
@@ -188,7 +192,8 @@
 				EA79C33C1F6E5CCB0077AED5 /* AppDelegate.h */,
 				EA79C33D1F6E5CCB0077AED5 /* AppDelegate.m */,
 				68BCA0891F9A17DB00E85F90 /* HeaderView.xib */,
-				EA79C3421F6E5CCB0077AED5 /* Main.storyboard */,
+				689993ED1FB178B900C90FB8 /* QADetailViewController.h */,
+				689993EE1FB178B900C90FB8 /* QADetailViewController.m */,
 				EA79C3781F6E76030077AED5 /* SIQASubViewCtrl.h */,
 				EA79C3791F6E76030077AED5 /* SIQASubViewCtrl.m */,
 				EA79C3751F6E75CD0077AED5 /* SIQAPageViewCtrl.h */,
@@ -299,7 +304,6 @@
 				TargetAttributes = {
 					EA79C3351F6E5CCB0077AED5 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 765KR724Z7;
 						ProvisioningStyle = Automatic;
 					};
 					EA79C34E1F6E5CCB0077AED5 = {
@@ -341,12 +345,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				68BCA0941F9A1D8C00E85F90 /* AddViewController.xib in Resources */,
+				68EBBEB51FACC47D00CB8BCE /* BNRDetailViewController.xib in Resources */,
+				68EBBEB11FACBF9600CB8BCE /* AddViewController.xib in Resources */,
 				EA79C3491F6E5CCB0077AED5 /* LaunchScreen.storyboard in Resources */,
+				689993EC1FB177B600C90FB8 /* Main.storyboard in Resources */,
 				EA79C3461F6E5CCB0077AED5 /* Assets.xcassets in Resources */,
-				EA79C3441F6E5CCB0077AED5 /* Main.storyboard in Resources */,
 				68BCA08A1F9A17DB00E85F90 /* HeaderView.xib in Resources */,
-				68BCA08F1F9A1A1400E85F90 /* BNRDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +392,7 @@
 				68BCA08E1F9A1A1400E85F90 /* BNRDetailViewController.m in Sources */,
 				68BCA0871F9A17D100E85F90 /* BNRItemStore.m in Sources */,
 				0F462DC81F9B101E00587375 /* BugModel+CoreDataClass.m in Sources */,
+				689993EF1FB178B900C90FB8 /* QADetailViewController.m in Sources */,
 				0F9EE28C1FA4A07A00467B78 /* Bug.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,14 +429,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		EA79C3421F6E5CCB0077AED5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EA79C3431F6E5CCB0077AED5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EA79C3471F6E5CCB0077AED5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -537,7 +534,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 765KR724Z7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Start iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -550,7 +547,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 765KR724Z7;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "Start iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
