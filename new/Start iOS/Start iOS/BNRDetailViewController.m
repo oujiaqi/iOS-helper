@@ -49,12 +49,11 @@
     BNRItem *item = self.item;
     
     
-    NSString *htmlString = [NSString stringWithFormat:@"<html><body>   <font size=\"5\" color=\"black\">%@</font>,<br/><br/>描述:%@   <br/><br/>解决方法 %@ </body></html>",item.title,item.describe,item.solution];
+    NSString *htmlString = [NSString stringWithFormat:@"<html><body>   <font size=\"5\" color=\"black\">标题:%@</font>,<br/><br/>描述:%@   <br/><br/>解决方法： %@  <br/><br/>创建时间： %@ </body></html>",item.title,item.describe,item.solution,item.dateCreated];
     
     //    NSString * htmlString = @"<html><body>0. <a href=\"http://www.baidu.com/\">http://www.baidu.com</a> <br/>  1.Some html string  \n \n \n <br/> 2.This is some text! dfsdfdsfdsfgdsfdshjkfhdsjkhfjkldas  \n \n \n 3.hfjkldhgjkldhgjkldshgjlhdhgkdsjghdjskhgjkldshgjkld  \n \n \n 4.ashgjkldhgjkldshjlgkdshlghadslkdghdalghadlsjkghlksahgkljdsahglkjadhdkjlgha";
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
-    
-    
+
     
   
     

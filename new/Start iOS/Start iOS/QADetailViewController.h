@@ -10,4 +10,6 @@
 
 @interface QADetailViewController : UIViewController
 
+@property (nonatomic, copy) NSString* mQuestion;
+@property (nonatomic, copy) NSString* mAnswer;
 @end

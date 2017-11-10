@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F39-mG-wlW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="F39-mG-wlW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -59,7 +59,7 @@
                 <navigationController id="PpU-QQ-2Se" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Q&amp;A" id="DFK-hh-tIe" userLabel="Q&amp;A"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="cVI-j3-ObL">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -79,7 +79,7 @@
                         <viewControllerLayoutGuide type="bottom" id="QwL-HC-H2H"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="egf-0e-6TJ">
-                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ec8-bT-vdA">
@@ -129,7 +129,7 @@
                 <navigationController id="CnU-ca-qAC" customClass="B" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="mv9-88-KbD"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="745-Ff-tpM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -255,6 +255,10 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="answer" destination="KtU-XM-JlY" id="twV-Bq-OGP"/>
+                        <outlet property="question" destination="uNX-ku-RW4" id="9ie-FG-pDR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Ts-hC-p7f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

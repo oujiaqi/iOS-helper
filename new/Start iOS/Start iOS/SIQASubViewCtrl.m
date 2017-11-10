@@ -19,6 +19,7 @@
     [super viewDidLoad];
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 100;
+ 
     
     
     
@@ -53,14 +54,34 @@
     
     
     cell.textLabel.numberOfLines = 0;
-    if(_titleText==@"OC")
-        cell.textLabel.text=@"asd";
-    if(_titleText==@"Swift")
-        cell.textLabel.text=@"aaaa";
-    if(_titleText==@"iOS")
-        cell.textLabel.text=@"asda";
-    if(_titleText==@"Other")
-        cell.textLabel.text=@"asdaaaaa";
+    
+    if(indexPath.row == 0){
+        if(_titleText==@"OC")
+            cell.textLabel.text=@"OC问题一";
+        else if(_titleText==@"Swift")
+            cell.textLabel.text=@"Swift问题一";
+        else if(_titleText==@"iOS")
+            cell.textLabel.text=@"iOS问题一";
+        else if(_titleText==@"Other")
+            cell.textLabel.text=@"Other问题一";
+    }else if(indexPath.row == 1){
+        if(_titleText==@"OC")
+            cell.textLabel.text=@"OC问题二";
+        else if(_titleText==@"Swift")
+            cell.textLabel.text=@"Swift问题二";
+        else if(_titleText==@"iOS")
+            cell.textLabel.text=@"iOS问题二";
+        else if(_titleText==@"Other")
+            cell.textLabel.text=@"Other问题二";
+    }else if(indexPath.row == 2){
+        if(_titleText==@"Swift")
+            cell.textLabel.text=@"Swift问题三";
+        else if(_titleText==@"iOS")
+            cell.textLabel.text=@"iOS问题三";
+        else if(_titleText==@"Other")
+            cell.textLabel.text=@"Other问题三";
+    }
+    
     //cell.textLabel.text = _titleText;
     
     //    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -74,7 +95,11 @@
     
     QADetailViewController *detail = [self.storyboard instantiateViewControllerWithIdentifier:@"QADetailViewController"];
     //    QADetailViewController *detail=[[QADetailViewController alloc]init];
+    detail.mQuestion=[tableView cellForRowAtIndexPath:indexPath].textLabel.text;
     [self.navigationController pushViewController:detail animated:YES];
+    
+    
+
     
 }
 @end

@@ -7,12 +7,20 @@
 //
 
 #import "QADetailViewController.h"
+@interface QADetailViewController ()
+@property (weak, nonatomic) IBOutlet UITextView *question;
+@property (weak, nonatomic) IBOutlet UITextView *answer;
+
+
+@end
+
 
 @implementation QADetailViewController
 
-
 -(void)viewDidLoad{
-self.navigationItem.title = @"详情";
+    self.navigationItem.title = @"详情";
+    
+    self.question.text=self.mQuestion;
 }
 
 @end

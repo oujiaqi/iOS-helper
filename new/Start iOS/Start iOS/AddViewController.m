@@ -75,7 +75,7 @@ extern NSString *SERVER_PORT;
     
     // _placeholderLabel
     UILabel *placeHolderLabel = [[UILabel alloc] init];
-    placeHolderLabel.text = @"请输标题入内容";
+    placeHolderLabel.text = @"请输入标题内容";
     placeHolderLabel.numberOfLines = 0;
     placeHolderLabel.textColor = [UIColor lightGrayColor];
     [placeHolderLabel sizeToFit];
@@ -88,7 +88,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel1.numberOfLines = 0;
     placeHolderLabel1.textColor = [UIColor lightGrayColor];
     [placeHolderLabel1 sizeToFit];
-    placeHolderLabel1.text = @"请输描述入内容";
+    placeHolderLabel1.text = @"请输入描述内容";
     [self.describe addSubview:placeHolderLabel1];
     [self.describe setValue:placeHolderLabel1 forKey:@"_placeholderLabel"];
     
