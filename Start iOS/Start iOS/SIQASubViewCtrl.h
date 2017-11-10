@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SIQASubViewCtrl : UIViewController
+@interface SIQASubViewCtrl : UITableViewController
 
 //@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 //@property (weak, nonatomic) IBOutlet UILabel *titleLable;
