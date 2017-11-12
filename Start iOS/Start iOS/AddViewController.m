@@ -97,7 +97,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel2.numberOfLines = 0;
     placeHolderLabel2.textColor = [UIColor lightGrayColor];
     [placeHolderLabel2 sizeToFit];
-    placeHolderLabel2.text = @"请输入回复内容";
+    placeHolderLabel2.text = @"请输解决方案";
     [self.solution addSubview:placeHolderLabel2];
     [self.solution setValue:placeHolderLabel2 forKey:@"_placeholderLabel"];
     
@@ -107,7 +107,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel3.numberOfLines = 0;
     placeHolderLabel3.textColor = [UIColor lightGrayColor];
     [placeHolderLabel3 sizeToFit];
-    placeHolderLabel3.text = @"请输入描述内容";
+    placeHolderLabel3.text = @"请输入链接地址";
     [self.category addSubview:placeHolderLabel3];
     [self.category setValue:placeHolderLabel3 forKey:@"_placeholderLabel"];
     
@@ -115,7 +115,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel4.numberOfLines = 0;
     placeHolderLabel4.textColor = [UIColor lightGrayColor];
     [placeHolderLabel4 sizeToFit];
-    placeHolderLabel4.text = @"请输链接内容";
+    placeHolderLabel4.text = @"请输问题类别";
     [self.url addSubview:placeHolderLabel4];
     [self.url setValue:placeHolderLabel4 forKey:@"_placeholderLabel"];
     
@@ -133,7 +133,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel6.numberOfLines = 0;
     placeHolderLabel6.textColor = [UIColor lightGrayColor];
     [placeHolderLabel6 sizeToFit];
-    placeHolderLabel6.text = @"请输正确码";
+    placeHolderLabel6.text = @"请输修改后的代码";
     [self.correctercode addSubview:placeHolderLabel6];
     [self.correctercode setValue:placeHolderLabel6 forKey:@"_placeholderLabel"];
     
@@ -141,7 +141,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel7.numberOfLines = 0;
     placeHolderLabel7.textColor = [UIColor lightGrayColor];
     [placeHolderLabel7 sizeToFit];
-    placeHolderLabel7.text = @"请输图片入内容";
+    placeHolderLabel7.text = @"上传照片";
     [self.picture addSubview:placeHolderLabel7];
     [self.picture setValue:placeHolderLabel7 forKey:@"_placeholderLabel"];
     
@@ -169,6 +169,13 @@ extern NSString *SERVER_PORT;
     NSString* mTitle=self.mTitle.text;
     NSString* describe=self.describe.text;
     NSString* solution=self.solution.text;
+    NSString* bugurl=self.url.text;
+    NSString* correctedcode=self.correctercode.text;
+    NSString* errorcode=self.errorcode.text;
+    NSString* category=self.category.text;
+    
+  
+
     if ([mTitle isEqualToString:@""] || [describe isEqualToString:@""] ||[solution isEqualToString:@""] ) {
         [self.view makeToast:@"请填写完整信息"];
         // Clear first responder
@@ -189,7 +196,11 @@ extern NSString *SERVER_PORT;
     
     //5.设置请求体
     
-    request.HTTPBody = [[NSString stringWithFormat: @"title=%@&description=%@&answer=%@",mTitle,describe,solution ] dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPBody = [[NSString stringWithFormat: @"title=%@&description=%@&answer=%@&url=%@&correctedCode=%@&errorCode=%@&category=%@",mTitle,describe,solution,bugurl,correctedcode,errorcode,category ] dataUsingEncoding:NSUTF8StringEncoding];
+    
+ 
+    
+    
     //    request.HTTPBody = [@"{'title'='test3'}" dataUsingEncoding:NSUTF8StringEncoding];
     
     //6.根据会话对象创建一个Task(发送请求）
@@ -218,6 +229,10 @@ extern NSString *SERVER_PORT;
             item.title= self.mTitle.text;
             item.describe= self.describe.text;
             item.solution = self.solution.text;
+            item.url=self.url.text;
+            item.correctercode=self.correctercode.text;
+            item.errorcode=self.errorcode.text;
+            item.category=self.category.text;
             item.bugid=dict[@"bid"];
             BNRItemStore* itemStore=[BNRItemStore sharedStore] ;
             [itemStore addItem:item];
@@ -230,6 +245,10 @@ extern NSString *SERVER_PORT;
             model.bugid=item.bugid;
             model.title=item.title;
             model.describe=item.describe;
+            model.url=item.url;
+            model.correctCode=item.correctercode;
+            model.errorCode=item.errorcode;
+            model.category=item.category;
             //        model.category=item.category;
             //        model.errorCode=@"errcode2";
             //        model.correctCode=@"correctcode3";

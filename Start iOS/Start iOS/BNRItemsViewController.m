@@ -290,7 +290,7 @@ extern NSString *SERVER_PORT;
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
+
     [self.tableView reloadData];
     
 }
@@ -345,7 +345,7 @@ extern NSString *SERVER_PORT;
                 model.bugid=key;
                 model.category=value[@"category"];
                 model.errorCode=value[@"errorCode"];
-                model.correctCode=value[@"correctCode"];
+                model.correctCode=value[@"correctedCode"];
                 model.solution=value[@"answer"];
                 model.title=value[@"title"];
                 model.url=value[@"url"];
@@ -364,6 +364,10 @@ extern NSString *SERVER_PORT;
                 //[self.resultArray addObject:model];
                 
                 BNRItem* item=[[BNRItem alloc]initWithBugTitle:model.title BugDescribe:model.describe BugSolution:model.solution];
+                item.category=model.category;
+                item.errorcode=model.errorCode;
+                item.correctercode=model.correctCode;
+                item.url=model.url;
 //                BNRItem* item=[[BNRItem alloc]initWithBugTitle:@"1" BugDescribe:@"2"  BugSolution:@"3"];
                 item.bugid=model.bugid;
                 [store addItem:item];

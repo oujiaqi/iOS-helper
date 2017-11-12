@@ -111,11 +111,11 @@
 - (NSString *)description
 {
     NSString *descriptionString =
-    [[NSString alloc] initWithFormat:@"%@ (%@): %@, recorded on %@",
+    [[NSString alloc] initWithFormat:@"%@ (%@)",
      self.title,
-     self.describe,
-     self.solution,
-     self.dateCreated];
+     self.describe];
+     //self.solution,
+     //self.dateCreated];
     return descriptionString;
 }
 

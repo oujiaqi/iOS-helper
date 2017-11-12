@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController">
             <connections>
                 <outlet property="UISroll" destination="d4I-1m-7Q0" id="IRX-zC-PQ2"/>
-                <outlet property="category" destination="4cp-pb-3fp" id="sfU-6d-888"/>
-                <outlet property="correctercode" destination="0nu-oV-hmZ" id="HBv-gK-1CM"/>
-                <outlet property="describe" destination="WrW-3H-dBg" id="ACj-Rt-OrV"/>
-                <outlet property="errorcode" destination="Fdi-IL-eOe" id="pMR-0v-VWp"/>
-                <outlet property="mTitle" destination="Bfe-Vq-yGn" id="Vc9-Nk-vV2"/>
-                <outlet property="picture" destination="cpk-ac-hlX" id="kfv-u8-xTk"/>
-                <outlet property="solution" destination="8cy-Rn-oRa" id="nY2-DU-SXA"/>
-                <outlet property="url" destination="LEy-WN-2q8" id="Znh-4t-nQZ"/>
+                <outlet property="category" destination="0nu-oV-hmZ" id="Wxm-Fv-X0P"/>
+                <outlet property="correctercode" destination="Fdi-IL-eOe" id="ka5-1x-G3e"/>
+                <outlet property="describe" destination="WrW-3H-dBg" id="Ies-xy-3Xf"/>
+                <outlet property="errorcode" destination="cpk-ac-hlX" id="02e-5U-KeV"/>
+                <outlet property="mTitle" destination="Bfe-Vq-yGn" id="ah7-SR-MdF"/>
+                <outlet property="picture" destination="4cp-pb-3fp" id="IYT-W5-zBC"/>
+                <outlet property="solution" destination="8cy-Rn-oRa" id="F9h-n9-UOs"/>
+                <outlet property="url" destination="LEy-WN-2q8" id="3Te-nl-cWa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -60,8 +60,15 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="4cp-pb-3fp">
-                            <rect key="frame" x="8" y="841" width="359" height="123"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="0nu-oV-hmZ">
+                            <rect key="frame" x="8" y="460" width="359" height="123"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="cpk-ac-hlX">
+                            <rect key="frame" x="8" y="587" width="359" height="123"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -74,15 +81,8 @@
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="0nu-oV-hmZ">
-                            <rect key="frame" x="8" y="460" width="359" height="123"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                        </textView>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="cpk-ac-hlX">
-                            <rect key="frame" x="8" y="587" width="359" height="123"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" textAlignment="natural" id="4cp-pb-3fp">
+                            <rect key="frame" x="8" y="841" width="359" height="123"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>

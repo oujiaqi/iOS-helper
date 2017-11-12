@@ -23,4 +23,11 @@
 @property (nonatomic, copy) NSString *describe;
 @property (nonatomic,copy)  NSString *solution;
 @property (nonatomic, strong) NSDate *dateCreated;
+
+@property (nonatomic,copy)  NSString *url;
+@property (nonatomic,copy)  NSString *category;
+@property (nonatomic,copy)  NSString *errorcode;
+
+@property (nonatomic,copy)  NSString *correctercode;
+ 
 @end

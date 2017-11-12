@@ -47,9 +47,10 @@
     [super viewWillAppear:animated];
     
     BNRItem *item = self.item;
+    NSString * htmlString1 = @"<html><body><a href=\"http://www.baidu.com/\">http://www.baidu.com</a>";
     
     
-    NSString *htmlString = [NSString stringWithFormat:@"<html><body>   <font size=\"5\" color=\"black\">标题:%@</font>,<br/><br/>描述:%@   <br/><br/>解决方法： %@  <br/><br/>创建时间： %@ </body></html>",item.title,item.describe,item.solution,item.dateCreated];
+    NSString *htmlString = [NSString stringWithFormat:@"<html><body>   <font size=\"5\" color=\"black\">标题:%@</font>,<br/><br/>问题描述:%@   <br/><br/>解决方法： %@   <br/><br/>链接URL：%@  <br/><br/>类别：%@  <br/><br/>错误代码： %@ <br/><br/>修改后的代码： %@  <br/><br/>创建时间： %@ </body></html>",item.title,item.describe,item.solution,htmlString1,item.category,item.errorcode,item.correctercode,item.dateCreated];
     
     //    NSString * htmlString = @"<html><body>0. <a href=\"http://www.baidu.com/\">http://www.baidu.com</a> <br/>  1.Some html string  \n \n \n <br/> 2.This is some text! dfsdfdsfdsfgdsfdshjkfhdsjkhfjkldas  \n \n \n 3.hfjkldhgjkldhgjkldshgjlhdhgkdsjghdjskhgjkldshgjkld  \n \n \n 4.ashgjkldhgjkldshjlgkdshlghadslkdghdalghadlsjkghlksahgkljdsahglkjadhdkjlgha";
     NSAttributedString * attrStr = [[NSAttributedString alloc] initWithData:[htmlString dataUsingEncoding:NSUnicodeStringEncoding] options:@{ NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType } documentAttributes:nil error:nil];
