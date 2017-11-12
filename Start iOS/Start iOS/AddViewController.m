@@ -107,7 +107,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel3.numberOfLines = 0;
     placeHolderLabel3.textColor = [UIColor lightGrayColor];
     [placeHolderLabel3 sizeToFit];
-    placeHolderLabel3.text = @"请输入链接地址";
+    placeHolderLabel3.text = @"请输问题类别";
     [self.category addSubview:placeHolderLabel3];
     [self.category setValue:placeHolderLabel3 forKey:@"_placeholderLabel"];
     
@@ -115,7 +115,7 @@ extern NSString *SERVER_PORT;
     placeHolderLabel4.numberOfLines = 0;
     placeHolderLabel4.textColor = [UIColor lightGrayColor];
     [placeHolderLabel4 sizeToFit];
-    placeHolderLabel4.text = @"请输问题类别";
+    placeHolderLabel4.text = @"请输入链接地址";
     [self.url addSubview:placeHolderLabel4];
     [self.url setValue:placeHolderLabel4 forKey:@"_placeholderLabel"];
     

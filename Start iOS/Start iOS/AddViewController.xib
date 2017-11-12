@@ -12,14 +12,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController">
             <connections>
                 <outlet property="UISroll" destination="d4I-1m-7Q0" id="IRX-zC-PQ2"/>
-                <outlet property="category" destination="0nu-oV-hmZ" id="Wxm-Fv-X0P"/>
+                <outlet property="category" destination="LEy-WN-2q8" id="1g6-hH-pl8"/>
                 <outlet property="correctercode" destination="Fdi-IL-eOe" id="ka5-1x-G3e"/>
                 <outlet property="describe" destination="WrW-3H-dBg" id="Ies-xy-3Xf"/>
                 <outlet property="errorcode" destination="cpk-ac-hlX" id="02e-5U-KeV"/>
                 <outlet property="mTitle" destination="Bfe-Vq-yGn" id="ah7-SR-MdF"/>
                 <outlet property="picture" destination="4cp-pb-3fp" id="IYT-W5-zBC"/>
                 <outlet property="solution" destination="8cy-Rn-oRa" id="F9h-n9-UOs"/>
-                <outlet property="url" destination="LEy-WN-2q8" id="3Te-nl-cWa"/>
+                <outlet property="url" destination="0nu-oV-hmZ" id="l8S-rZ-bbc"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
